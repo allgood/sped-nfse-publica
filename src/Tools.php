@@ -363,8 +363,8 @@ class Tools extends BaseTools
             ['</ConsultarNfseFaixaEnvio>'],
             [
                 "<Faixa>"
-                . "<NumeroNfseInicial>" . sprintf("%04d%011d", $numero_ini, $numero_ano) . "</NumeroNfseInicial>"
-                . "<NumeroNfseFinal>" . sprintf("%04d%011d", $numero_ini, $numero_ano) . "</NumeroNfseFinal>"
+                . "<NumeroNfseInicial>" . sprintf("%04d%011d", $numero_ano,$numero_ini) . "</NumeroNfseInicial>"
+                . "<NumeroNfseFinal>" . sprintf("%04d%011d", $numero_ano,$numero_fim) . "</NumeroNfseFinal>"
                 . "</Faixa></ConsultarNfseFaixaEnvio>"
             ],
             $content
