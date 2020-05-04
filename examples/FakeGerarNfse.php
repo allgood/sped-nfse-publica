@@ -36,30 +36,23 @@ try {
     $std->version = '1.00'; //false
     $std->dataemissao = '2020-05-04T15:20:00'; //false
     $std->status = 1;  // true
-    $std->competencia = '2018-10-01'; //true
-    $std->regimeespecialtributacao = 1;
     $std->optantesimplesnacional = 2; // true
     $std->incentivadorcultural = 2; // true
     $std->naturezaoperacao = 1;
     
     $std->identificacaorps = new \stdClass(); //false
-    $std->identificacaorps->numero = 2;
+    $std->identificacaorps->numero = 3;
     $std->identificacaorps->serie = 'A1';
     $std->identificacaorps->tipo = 1;
     
     $std->servico = new \stdClass(); //true
-    $std->servico->issretido = 2; //true
     $std->servico->responsavelretencao = null; //false
     $std->servico->itemlistaservico = '11.01'; //true
-    $std->servico->codigocnae = '8599603'; //false
-    $std->servico->codigoTributacaomunicipio = null; //false
     $std->servico->discriminacao = 'Teste de RPS'; //true
+    $std->servico->informacoescomplementares = 'alguma observação complementar'; //true
     $std->servico->codigomunicipio = '3106200'; // true
     $std->servico->codigopais = null; //false
-    $std->servico->exigibilidadeiss = 1; //true
-    $std->servico->municipioincidencia = '3106200'; // false
-    $std->servico->numeroprocesso = null; //false
-    
+
     $std->servico->valores = new \stdClass(); //true
     $std->servico->valores->valorservicos = 100.00; //true
     $std->servico->valores->valordeducoes = 10.00; //false
@@ -68,15 +61,19 @@ try {
     $std->servico->valores->valorinss = 10.00; //false
     $std->servico->valores->valorir = 10.00; //false
     $std->servico->valores->valorcsll = 10.00; //false
-    $std->servico->valores->outrasretencoes = 10.00; //false
+    $std->servico->valores->issretido = 2; //true
     $std->servico->valores->valoriss = 10.00; //false
+    $std->servico->valores->valorissretido = 10.00; //false
+    $std->servico->valores->outrasretencoes = 10.00; //false
+    $std->servico->valores->basecalculo = 10.00; //false
     $std->servico->valores->aliquota = 5; //false
+    $std->servico->valores->valorliquidonfse = 10.00; //false
     $std->servico->valores->descontoincondicionado = 10.00; //false
     $std->servico->valores->descontocondicionado = 10.00; //false
     
     $std->tomador = new \stdClass(); //false
     $std->tomador->cnpj = "99999999000191"; //false
-    $std->tomador->cpf = "12345678901"; //false
+    $std->tomador->cpf = null; //false
     $std->tomador->razaosocial = "Fulano de Tal"; //false
     $std->tomador->telefone = '123456789'; //false
     $std->tomador->email = 'fulano@mail.com'; //false
@@ -96,10 +93,6 @@ try {
     $std->intermediarioservico->cpf = null; //false
     $std->intermediarioservico->inscricaomunicipal = '8041700010';
     $std->intermediarioservico->razaosocial = "Beltrano da Silva";
-    
-    $std->construcaocivil = new \stdClass(); //false
-    $std->construcaocivil->codigoobra = '1234'; //false
-    $std->construcaocivil->art = '1234'; //true
 
     $rps = new Rps($std);
 
