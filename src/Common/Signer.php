@@ -47,8 +47,8 @@ class Signer
         $algorithm = OPENSSL_ALGO_SHA1,
         $canonical = self::CANONICAL,
         $rootname = ''
-    )
-    {
+    ) {
+    
         if (empty($content)) {
             throw SignerException::isNotXml();
         }
@@ -98,8 +98,8 @@ class Signer
         $mark,
         $algorithm = OPENSSL_ALGO_SHA1,
         $canonical = self::CANONICAL
-    )
-    {
+    ) {
+    
         $nsDSIG = 'http://www.w3.org/2000/09/xmldsig#';
         $nsCannonMethod = 'http://www.w3.org/2001/10/xml-exc-c14n#';
         $nsSignatureMethod = 'http://www.w3.org/2000/09/xmldsig#rsa-sha1';

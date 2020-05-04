@@ -103,8 +103,8 @@ class Tools extends BaseTools
         $numero_nfse_a_cancelar,
         RpsInterface $novorps,
         $codigo = self::CANCEL_ERRO_EMISSAO
-    )
-    {
+    ) {
+    
         $operation = "SubstituirNfse";
         $novorps->config($this->config);
         $pedido = "<Pedido>"
