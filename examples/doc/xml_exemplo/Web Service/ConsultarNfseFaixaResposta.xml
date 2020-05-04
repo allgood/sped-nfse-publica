@@ -1,0 +1,86 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ConsultarNfseFaixaResposta xmlns="http://www.publica.inf.br" xmlns:ns2="http://www.w3.org/2000/09/xmldsig#">
+    <ListaNfse>
+        <CompNfse>
+            <Nfse>
+                <InfNfse>
+                    <Numero>201100000000093</Numero>
+                    <CodigoVerificacao>MDE5-MTUW</CodigoVerificacao>
+                    <DataEmissao>2012-01-17T16:13:31</DataEmissao>
+					<IdentificacaoRps>
+                        <Numero>1</Numero>
+                        <Serie>TY</Serie>
+                        <Tipo>1</Tipo>
+                    </IdentificacaoRps>
+                    <DataEmissaoRps>2012-01-15</DataEmissaoRps>
+                    <NaturezaOperacao>16</NaturezaOperacao>
+                    <OptanteSimplesNacional>1</OptanteSimplesNacional>
+                    <IncentivadorCultural>2</IncentivadorCultural>
+                    <Competencia>2012-01</Competencia>
+                    <OutrasInformacoes>- Data de vencimento do ISS desta NFS-e: 14/02/2012.</OutrasInformacoes>
+                    <Servico>
+                        <Valores>
+                           <ValorServicos>1000.0</ValorServicos>
+                            <ValorDeducoes>10.0</ValorDeducoes>
+                            <ValorPis>10.0</ValorPis>
+                            <ValorCofins>10.0</ValorCofins>
+                            <ValorInss>10.0</ValorInss>
+                            <ValorIr>10.0</ValorIr>
+                            <ValorCsll>10.0</ValorCsll>
+                            <IssRetido>1</IssRetido>
+                            <ValorIss>0.0</ValorIss>
+                            <ValorIssRetido>49.0</ValorIssRetido>
+                            <OutrasRetencoes>10.0</OutrasRetencoes>
+                            <BaseCalculo>980.0</BaseCalculo>
+                            <Aliquota>5.0</Aliquota>
+                            <ValorLiquidoNfse>871.0</ValorLiquidoNfse>
+                            <DescontoIncondicionado>10.0</DescontoIncondicionado>
+                            <DescontoCondicionado>10.0</DescontoCondicionado>
+                        </Valores>
+                        <ItemListaServico>1101</ItemListaServico>
+                        <Discriminacao>Desenvolvimento de Sistemas</Discriminacao>
+                        <CodigoMunicipio>3106200</CodigoMunicipio>
+                    </Servico>
+                    <PrestadorServico>
+                        <IdentificacaoPrestador>
+                            <Cnpj>95836771000120</Cnpj>
+                            <InscricaoMunicipal>56</InscricaoMunicipal>
+                        </IdentificacaoPrestador>
+                        <RazaoSocial>PUBLICA INFORMATICA LTDA</RazaoSocial>
+                        <NomeFantasia>PUBLICA SISTEMAS</NomeFantasia>
+                        <Endereco>
+                            <Endereco>RUA IÇARA</Endereco>
+                            <Numero>151</Numero>
+                            <Bairro>ITOUPAVA SECA</Bairro>
+                            <CodigoMunicipio>4208203</CodigoMunicipio>
+                            <Uf>SC</Uf>
+                            <Cep>89030170</Cep>
+                        </Endereco>
+                        <Contato/>
+                    </PrestadorServico>
+                    <TomadorServico>
+                        <IdentificacaoTomador>
+                            <CpfCnpj>
+                                <Cpf>04823071964</Cpf>
+                            </CpfCnpj>
+                        </IdentificacaoTomador>
+                        <RazaoSocial>HUGO HAROLDO</RazaoSocial>
+                        <Endereco>
+                            <Endereco>DA BAHIA</Endereco>
+                            <Numero>200</Numero>
+                            <Complemento>ANDAR 14</Complemento>
+                            <Bairro>CENTRO</Bairro>
+                            <CodigoMunicipio>3106200</CodigoMunicipio>
+                            <Uf>MG</Uf>
+                            <Cep>30160010</Cep>
+                        </Endereco>
+                    </TomadorServico>
+                    <OrgaoGerador>
+                        <CodigoMunicipio>4208203</CodigoMunicipio>
+                        <Uf>SC</Uf>
+                    </OrgaoGerador>
+                </InfNfse>
+            </Nfse>
+        </CompNfse>
+    </ListaNfse>
+</ConsultarNfseFaixaResposta>

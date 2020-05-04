@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GerarNfseEnvio xmlns="http://www.publica.inf.br">
+    <Rps>
+		<InfRps id="assinar">
+			<IdentificacaoRps>
+				<Numero>8</Numero>
+				<Serie>A1</Serie>
+				<Tipo>1</Tipo>
+			</IdentificacaoRps>
+				<DataEmissao>2012-01-01T21:00:00</DataEmissao>
+				<NaturezaOperacao>16</NaturezaOperacao>
+				<OptanteSimplesNacional>1</OptanteSimplesNacional>
+				<IncentivadorCultural>2</IncentivadorCultural>
+				<Status>1</Status>
+				<Servico>
+					<Valores>
+						<ValorServicos>1000.00</ValorServicos>
+						<ValorDeducoes>10.00</ValorDeducoes>
+						<ValorPis>10.00</ValorPis>
+						<ValorCofins>10.00</ValorCofins>
+						<ValorInss>10.00</ValorInss>
+						<ValorIr>10.00</ValorIr>
+						<ValorCsll>10.00</ValorCsll>
+						<IssRetido>1</IssRetido>
+						<ValorIss>10.00</ValorIss>
+						<OutrasRetencoes>10.00</OutrasRetencoes>
+						<Aliquota>5.00</Aliquota>
+						<DescontoIncondicionado>10.00</DescontoIncondicionado>
+						<DescontoCondicionado>10.00</DescontoCondicionado>
+					</Valores>
+					<ItemListaServico>11.01</ItemListaServico>
+					<Discriminacao>Teste.</Discriminacao>
+					<CodigoMunicipio>3106200</CodigoMunicipio>
+				</Servico>
+				<Prestador>
+					<Cnpj>95836771000120</Cnpj>
+					<InscricaoMunicipal>56</InscricaoMunicipal>
+				</Prestador>
+				<Tomador>
+					<IdentificacaoTomador>
+						<CpfCnpj>
+							<Cpf>04823071964</Cpf>
+						</CpfCnpj>
+				</IdentificacaoTomador>
+				<RazaoSocial>HUGO HAROLDO</RazaoSocial>
+				<Endereco>
+					<Endereco>DA BAHIA</Endereco>
+					<Numero>200</Numero>
+					<Complemento>ANDAR 14</Complemento>
+					<Bairro>CENTRO</Bairro>
+					<CodigoMunicipio>3106200</CodigoMunicipio>
+					<Uf>MG</Uf>
+					<Cep>30160010</Cep>
+				</Endereco>
+			</Tomador>
+		</InfRps><ds:Signature xmlns:ds="http://www.w3.org/2000/09/xmldsig#">
+<ds:SignedInfo>
+<ds:CanonicalizationMethod Algorithm="http://www.w3.org/TR/2001/REC-xml-c14n-20010315"/>
+<ds:SignatureMethod Algorithm="http://www.w3.org/2000/09/xmldsig#rsa-sha1"/>
+<ds:Reference URI="#assinar">
+<ds:Transforms>
+<ds:Transform Algorithm="http://www.w3.org/2000/09/xmldsig#enveloped-signature"/>
+<ds:Transform Algorithm="http://www.w3.org/TR/2001/REC-xml-c14n-20010315#WithComments"/>
+<ds:Transform Algorithm="http://www.w3.org/TR/1999/REC-xpath-19991116">
+<ds:XPath>not(ancestor-or-self::ds:Signature)</ds:XPath>
+</ds:Transform>
+</ds:Transforms>
+<ds:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1"/>
+<ds:DigestValue>3A7Y3PQpJL1Gu3noBwclEG5l6I4=</ds:DigestValue>
+</ds:Reference>
+</ds:SignedInfo>
+<ds:SignatureValue>
+cZJSvxBI14GUrg+wn0GvOk16UK2ghvc40xbu5XFJNNDD2EwL4oYGhHEiPeh3dlP4e9K9anGrdI1U
+eMExw+vXPQVhJBAqOHDpyoj4xEz7dpjK11GVwjoeuavBhEhZQ2vHDm6DU84hFzv9eTMEjF/D6MNT
+0hVMVLjOxPD7lL5fOkw=
+</ds:SignatureValue>
+<ds:KeyInfo>
+<ds:X509Data>
+<ds:X509Certificate>
+MIIEcTCCA9qgAwIBAgICBe8wDQYJKoZIhvcNAQEFBQAwgZwxCzAJBgNVBAYTAkJSMQswCQYDVQQI
+DAJTQzEWMBQGA1UEBwwNRkxPUklBTk9QT0xJUzEhMB8GA1UECwwYQVVUT1JJREFERSBDRVJUSUZJ
+Q0FET1JBMRwwGgYDVQQKDBNCUlkgVEVDTk9MT0dJQSBTLkEuMScwJQYDVQQDDB5BQyBCUlkgTVVM
+VElQTEEgLSBERU1PTlNUUkFDQU8wHhcNMTExMjE2MTU0ODEyWhcNMTIxMjE1MTU0ODEyWjCBnDEL
+MAkGA1UEBhMCQlIxCzAJBgNVBAgMAlNDMREwDwYDVQQHDAhCTFVNRU5BVTEuMCwGA1UECwwlQVVU
+T1JJREFERSBDRVJUSUZJQ0FET1JBIERFTU9OU1RSQUNBTzEcMBoGA1UECgwTQlJZIFRFQ05PTE9H
+SUEgUy5BLjEfMB0GA1UEAwwWSFVHTyBIQVJPTERPIFNXQVJPV1NLWTCBnzANBgkqhkiG9w0BAQEF
+AAOBjQAwgYkCgYEA+N10dsNFHS+Kv3Umg+iTK8ePq0F5JZeWF9Dv5hfNmrxpplx97ifOjcAxzlq5
+QJIWodvsfLBvRLrYDbpV9u3wbeofixADAxZcqCLMb/0z1lGAnPX/XOJ+ozfZLUB3+yBNWbn0nQ/B
+dS6kuH8p2dGvdxqq2Mz7dtHJKts7dPeUEPkCAwEAAaOCAb4wggG6MB8GA1UdIwQYMBaAFAr9brgT
+DudHuiBaV/zPrxKQAxc5MB0GA1UdJQQWMBQGCCsGAQUFBwMCBggrBgEFBQcDBDAOBgNVHQ8BAf8E
+BAMCBeAwCQYDVR0TBAIwADBaBgNVHR8BAQAEUDBOMEygSqBIhkZodHRwOi8vaWNwLmJyeS5jb20u
+YnIvcmVwb3NpdG9yaW8vbGNyL2FjX2JyeV9tdWx0aXBsYV9kZW1vbnN0cmFjYW8uY3JsMIGYBgNV
+HREEgZAwgY2gPQYFYEwBAwGgNAQyMzAwNzE5ODMwNDgyMzA3MTk2NDAwMDAwMDAwMDAwMDAwMDAw
+MDAzOTkzOTI0U1NQU0OgHgYFYEwBAwWgFQQTMDAwMDAwMDAwMDAwMDAwMDAwMKAXBgVgTAEDBqAO
+BAwwMDAwMDAwMDAwMDCBE2h1Z29AcHVibGljYS5pbmYuYnIwZgYDVR0gBF8wXTBbBgsrBgEEAfR/
+AQMBATBMMEoGCCsGAQUFBwIBFj5odHRwOi8vaWNwLmJyeS5jb20uYnIvcmVwb3NpdG9yaW8vcGMv
+cGNfYTFfYWNfYnJ5X211bHRpcGxhLnBkZjANBgkqhkiG9w0BAQUFAAOBgQAt0JT0hg/yrprl23gw
+P+jGeS8f7kqiRhoFz5/6JeuFyQJ94UriU56YuoNtWFVhQiRtkt1MBR5SLlyTDefOikkIcS28FgxZ
+rxZvACxAeIff9Y6SySj0TEICx95Ulxb0g0O663+QHPJTgdUafdHvJHo6uqnOTWXe1jW/X4vDR2gS
+/w==
+</ds:X509Certificate>
+</ds:X509Data>
+<ds:KeyValue>
+<ds:RSAKeyValue>
+<ds:Modulus>
++N10dsNFHS+Kv3Umg+iTK8ePq0F5JZeWF9Dv5hfNmrxpplx97ifOjcAxzlq5QJIWodvsfLBvRLrY
+DbpV9u3wbeofixADAxZcqCLMb/0z1lGAnPX/XOJ+ozfZLUB3+yBNWbn0nQ/BdS6kuH8p2dGvdxqq
+2Mz7dtHJKts7dPeUEPk=
+</ds:Modulus>
+<ds:Exponent>AQAB</ds:Exponent>
+</ds:RSAKeyValue>
+</ds:KeyValue>
+</ds:KeyInfo>
+</ds:Signature>
+    </Rps>
+</GerarNfseEnvio>

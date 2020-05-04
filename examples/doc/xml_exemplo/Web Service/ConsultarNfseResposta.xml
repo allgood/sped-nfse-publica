@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ConsultarNfseResposta xmlns="http://www.publica.inf.br" xmlns:ns2="http://www.w3.org/2000/09/xmldsig#">
+    <ListaNfse>
+        <CompNfse>
+            <Nfse>
+                <InfNfse>
+                    <Numero>201100000000029</Numero>
+                    <CodigoVerificacao>NTMW-MDG2</CodigoVerificacao>
+                    <DataEmissao>2011-12-09T09:08:35</DataEmissao>
+                    <DataEmissaoRps>2011-11-29</DataEmissaoRps>
+                    <NaturezaOperacao>12</NaturezaOperacao>
+                    <OptanteSimplesNacional>2</OptanteSimplesNacional>
+                    <IncentivadorCultural>2</IncentivadorCultural>
+                    <Competencia>2011-11</Competencia>
+                    <OutrasInformacoes>- Data de vencimento do ISS desta NFS-e: 13/01/2012.</OutrasInformacoes>
+                    <Servico>
+                        <Valores>
+                            <ValorServicos>18.99</ValorServicos>
+                            <ValorDeducoes>0.0</ValorDeducoes>
+                            <ValorPis>0.0</ValorPis>
+                            <ValorCofins>0.0</ValorCofins>
+                            <ValorInss>0.0</ValorInss>
+                            <ValorIr>0.0</ValorIr>
+                            <ValorCsll>0.0</ValorCsll>
+                            <IssRetido>2</IssRetido>
+                            <ValorIss>0.57</ValorIss>
+                            <ValorIssRetido>0.0</ValorIssRetido>
+                            <OutrasRetencoes>0.0</OutrasRetencoes>
+                            <BaseCalculo>18.99</BaseCalculo>
+                            <Aliquota>0.03</Aliquota>
+                            <ValorLiquidoNfse>0</ValorLiquidoNfse>
+                            <DescontoIncondicionado>0.0</DescontoIncondicionado>
+                            <DescontoCondicionado>0.0</DescontoCondicionado>
+                        </Valores>
+                        <ItemListaServico>1601</ItemListaServico>
+                        <Discriminacao>Prestacao de Servicos de Transporte</Discriminacao>
+                        <CodigoMunicipio>4208203</CodigoMunicipio>
+                    </Servico>
+                    <PrestadorServico>
+                        <IdentificacaoPrestador>
+                            <Cnpj>95836771000120</Cnpj>
+                            <InscricaoMunicipal>56</InscricaoMunicipal>
+                        </IdentificacaoPrestador>
+                        <RazaoSocial>PUBLICA INFORMATICA LTDA</RazaoSocial>
+                        <NomeFantasia>PUBLICA SISTEMAS</NomeFantasia>
+                        <Endereco>
+                            <Endereco>RUA IÇARA</Endereco>
+                            <Numero>151</Numero>
+                            <Bairro>ITOUPAVA SECA</Bairro>
+                            <CodigoMunicipio>4208203</CodigoMunicipio>
+                            <Uf>SC</Uf>
+                            <Cep>89030170</Cep>
+                        </Endereco>
+                        <Contato/>
+                    </PrestadorServico>
+                    <TomadorServico>
+                        <IdentificacaoTomador>
+                            <CpfCnpj>
+                                <Cpf>04823071964</Cpf>
+                            </CpfCnpj>
+                        </IdentificacaoTomador>
+                        <RazaoSocial>HUGO HAROLDO</RazaoSocial>
+                        <Endereco>
+                            <Endereco>DA BAHIA</Endereco>
+                            <Numero>200</Numero>
+                            <Complemento>ANDAR 14</Complemento>
+                            <Bairro>CENTRO</Bairro>
+                            <CodigoMunicipio>3106200</CodigoMunicipio>
+                            <Uf>MG</Uf>
+                            <Cep>30160010</Cep>
+                        </Endereco>
+                    </TomadorServico>
+                    <OrgaoGerador>
+                        <CodigoMunicipio>4208203</CodigoMunicipio>
+                        <Uf>SC</Uf>
+                    </OrgaoGerador>
+                </InfNfse>
+            </Nfse>
+        </CompNfse>
+    </ListaNfse>
+</ConsultarNfseResposta>

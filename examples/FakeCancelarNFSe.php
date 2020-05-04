@@ -9,13 +9,13 @@ use NFePHP\NFSePublica\Common\Soap\SoapFake;
 use NFePHP\NFSePublica\Common\FakePretty;
 
 try {
-    
+
     $config = [
         'cnpj' => '99999999000191',
         'im' => '1733160024',
         'cmun' => '4204202', //ira determinar as urls e outros dados
         'razao' => 'Empresa Test Ltda',
-        'tpamb' => 2 //1-producao, 2-homologacao
+        'tpamb' => 2
     ];
 
     $configJson = json_encode($config);
@@ -30,14 +30,11 @@ try {
     $tools = new Tools($configJson, $cert);
     $tools->loadSoapClass($soap);
 
-    $id = '1';
-    $numero = '1';
+    $numero = '202000000000001';
     
-    $response = $tools->cancelarNfse($id, $numero, $tools::CANCEL_ERRO_EMISSAO);
+    $response = $tools->cancelarNfse($numero, $tools::CANCEL_ERRO_EMISSAO, 'teste de cancelamento');
 
     echo FakePretty::prettyPrint($response, '');
- 
 } catch (\Exception $e) {
     echo $e->getMessage();
 }
-

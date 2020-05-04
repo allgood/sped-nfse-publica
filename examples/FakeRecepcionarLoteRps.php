@@ -35,17 +35,17 @@ try {
     $arps = [];
 
     $std = new \stdClass();
-    $std->version = '3.01'; //false
-    $std->dataemissao = '2018-10-31T21:00:00'; //false
+    $std->version = '1.00'; //false
+    $std->dataemissao = '2020-05-04T15:20:00'; //false
     $std->status = 1;  // true
     $std->competencia = '2018-10-01'; //true
     $std->regimeespecialtributacao = 1;
-    $std->optantesimplesnacional = 1; // true
+    $std->optantesimplesnacional = 2; // true
     $std->incentivadorcultural = 2; // true
-    $std->naturezaoperacao = 16;
+    $std->naturezaoperacao = 1;
 
     $std->identificacaorps = new \stdClass(); //false
-    $std->identificacaorps->numero = 1;
+    $std->identificacaorps->numero = 3;
     $std->identificacaorps->serie = 'A1';
     $std->identificacaorps->tipo = 1;
 
@@ -79,7 +79,7 @@ try {
     $std->tomador = new \stdClass(); //false
     $std->tomador->cnpj = "99999999000191"; //false
     $std->tomador->cpf = "12345678901"; //false
-    $std->tomador->razaosocial = "Fulano de Tal"; //false 
+    $std->tomador->razaosocial = "Fulano de Tal"; //false
     $std->tomador->telefone = '123456789'; //false
     $std->tomador->email = 'fulano@mail.com'; //false
 
@@ -94,7 +94,7 @@ try {
     $std->tomador->endereco->cep = '30160010'; //false
 
     $std->intermediarioservico = new \stdClass(); //false
-    $std->intermediarioservico->cnpj = '99999999000191'; //false 
+    $std->intermediarioservico->cnpj = '99999999000191'; //false
     $std->intermediarioservico->cpf = null; //false
     $std->intermediarioservico->inscricaomunicipal = '8041700010';
     $std->intermediarioservico->razaosocial = "Beltrano da Silva";
@@ -105,7 +105,7 @@ try {
 
     $arps[] = new Rps($std);
 
-    $lote = '123456';
+    $lote = '3';
     $response = $tools->recepcionarLoteRps($arps, $lote);  //METODO ASSINCRONO
 
     echo FakePretty::prettyPrint($response, '');

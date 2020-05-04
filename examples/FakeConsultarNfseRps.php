@@ -9,7 +9,7 @@ use NFePHP\NFSePublica\Common\Soap\SoapFake;
 use NFePHP\NFSePublica\Common\FakePretty;
 
 try {
-    
+
     $config = [
         'cnpj' => '99999999000191',
         'im' => '1733160024',
@@ -30,14 +30,13 @@ try {
     $tools = new Tools($configJson, $cert);
     $tools->loadSoapClass($soap);
 
-    $numero = 123456;
-    $serie = 1;
+    $numero = '2';
+    $serie = 'A1';
     $tipo = 1;
 
     $response = $tools->consultarNfseRps($numero, $serie, $tipo);
-    
+
     echo FakePretty::prettyPrint($response, '');
- 
 } catch (\Exception $e) {
     echo $e->getMessage();
 }

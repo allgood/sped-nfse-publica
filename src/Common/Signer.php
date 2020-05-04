@@ -25,7 +25,7 @@ use DOMElement;
 
 class Signer
 {
-    const CANONICAL = [true,false,null,null];
+    const CANONICAL = [true, false, null, null];
 
     /**
      * Make Signature tag
@@ -47,7 +47,8 @@ class Signer
         $algorithm = OPENSSL_ALGO_SHA1,
         $canonical = self::CANONICAL,
         $rootname = ''
-    ) {
+    )
+    {
         if (empty($content)) {
             throw SignerException::isNotXml();
         }
@@ -97,13 +98,14 @@ class Signer
         $mark,
         $algorithm = OPENSSL_ALGO_SHA1,
         $canonical = self::CANONICAL
-    ) {
+    )
+    {
         $nsDSIG = 'http://www.w3.org/2000/09/xmldsig#';
         $nsCannonMethod = 'http://www.w3.org/2001/10/xml-exc-c14n#';
         $nsSignatureMethod = 'http://www.w3.org/2000/09/xmldsig#rsa-sha1';
         $nsDigestMethod = 'http://www.w3.org/2000/09/xmldsig#sha1';
         $digestAlgorithm = 'sha1';
-        $nsTransformMethod1 ='http://www.w3.org/2000/09/xmldsig#enveloped-signature';
+        $nsTransformMethod1 = 'http://www.w3.org/2000/09/xmldsig#enveloped-signature';
         $nsTransformMethod2 = 'http://www.w3.org/TR/2001/REC-xml-c14n-20010315';
         $idSigned = trim($node->getAttribute($mark));
         $digestValue = self::makeDigest($node, $digestAlgorithm, $canonical);

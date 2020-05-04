@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CartaCorrecaoNfseEnvio xmlns="http://www.publica.inf.br">
+   <Pedido>
+        <InfPedidoCartaCorrecao id="assinar">
+            <IdentificacaoNfse>
+                <Numero>201500000000001</Numero>
+                <Cnpj>01362467000144</Cnpj>
+                <CodigoMunicipio>4208203</CodigoMunicipio>
+            </IdentificacaoNfse>
+			<TomadorServico>
+                    <IdentificacaoTomador>
+                        <CpfCnpj>
+                            <Cnpj>03112402000176</Cnpj>
+                        </CpfCnpj>
+                    </IdentificacaoTomador>
+                    <RazaoSocial>PUBLICA INFORMATICA</RazaoSocial>
+                    <Endereco>
+                        <Endereco>RUA ICARA</Endereco>
+                        <Numero>151</Numero>
+                        <Bairro>ITOUPAVA SECA</Bairro>
+                        <Cep>89030170</Cep>
+                    </Endereco>
+                    <Contato>
+                        <Email>gilberto@publica.inf.br</Email>
+                    </Contato>
+			</TomadorServico>
+            <Discriminacao>NOVA DISCRIMINACAO DO SERVICO</Discriminacao>
+        </InfPedidoCartaCorrecao>
+    </Pedido>
+</CartaCorrecaoNfseEnvio>

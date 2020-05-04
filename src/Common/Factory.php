@@ -14,6 +14,7 @@ namespace NFePHP\NFSePublica\Common;
  * @author    Roberto L. Machado <linux.rlm at gmail dot com>
  * @link      http://github.com/nfephp-org/sped-nfse-publica for the canonical source repository
  */
+
 use stdClass;
 use NFePHP\Common\DOMImproved as Dom;
 use DOMNode;

@@ -9,6 +9,7 @@ use NFePHP\NFSePublica\Common\Soap\SoapFake;
 use NFePHP\NFSePublica\Common\FakePretty;
 
 try {
+
     $config = [
         'cnpj' => '99999999000191',
         'im' => '1733160024',
@@ -29,12 +30,11 @@ try {
     $tools = new Tools($configJson, $cert);
     $tools->loadSoapClass($soap);
 
-    $protocolo = 'ABCDE123456';
+    $protocolo = 'Nzs3NDgwOzM2MzA7Mzs3Ozc0ODA7MzYzMDszOzc7NzQ4MDszNj';
 
     $response = $tools->consultarLoteRps($protocolo);
 
     echo FakePretty::prettyPrint($response, '');
- 
 } catch (\Exception $e) {
     echo $e->getMessage();
 }

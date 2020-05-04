@@ -49,14 +49,15 @@ class SoapCurl extends SoapBase implements SoapInterface
         $action,
         $envelope,
         $parameters
-    ) {
+    )
+    {
         $response = '';
         $this->requestHead = implode("\n", $parameters);
         $this->requestBody = $envelope;
 
         //remover apos os testes
         $ts = time();
-        file_put_contents(sys_get_temp_dir()."/req_{$action}_{$ts}.xml", $envelope);
+        file_put_contents(sys_get_temp_dir() . "/req_{$action}_{$ts}.xml", $envelope);
 
         try {
             $this->saveTemporarilyKeyFiles();
@@ -82,7 +83,7 @@ class SoapCurl extends SoapBase implements SoapInterface
                 curl_setopt($oCurl, CURLOPT_KEYPASSWD, $this->temppass);
             }
             curl_setopt($oCurl, CURLOPT_RETURNTRANSFER, true);
-            if (! empty($envelope)) {
+            if (!empty($envelope)) {
                 curl_setopt($oCurl, CURLOPT_POST, true);
                 curl_setopt($oCurl, CURLOPT_POSTFIELDS, $envelope);
                 curl_setopt($oCurl, CURLOPT_HTTPHEADER, $parameters);
@@ -107,55 +108,23 @@ class SoapCurl extends SoapBase implements SoapInterface
             throw SoapException::unableToLoadCurl($e->getMessage());
         }
         if ($this->soaperror != '') {
-            throw SoapException::soapFault($this->soaperror . " [$url]", 0);
+            throw SoapException::soapFault(
+                $this->soaperror . " [$url]",
+                $httpcode
+            );
         }
         if ($httpcode != 200) {
             throw SoapException::soapFault(
                 " [$url] HTTP Error code: $httpcode - "
-                . $this->getFaultString($this->responseBody, $httpcode)
+                . $this->getFaultString($this->responseBody),
+                $httpcode
             );
         }
 
         //remover apos os testes
-        file_put_contents(sys_get_temp_dir()."/res_{$action}_{$ts}.xml", $this->responseBody);
+        file_put_contents(sys_get_temp_dir() . "/res_{$action}_{$ts}.xml", $this->responseBody);
 
         return $this->responseBody;
-    }
-
-    /**
-     * Recover WSDL form given URL
-     * @param string $url
-     * @return string
-     */
-    public function wsdl($url)
-    {
-        $response = '';
-        $this->saveTemporarilyKeyFiles();
-        $url .= '?wsdl'; //singleWsdl
-        $oCurl = curl_init();
-        curl_setopt($oCurl, CURLOPT_URL, $url);
-        curl_setopt($oCurl, CURLOPT_IPRESOLVE, CURL_IPRESOLVE_V4);
-        curl_setopt($oCurl, CURLOPT_CONNECTTIMEOUT, $this->soaptimeout);
-        curl_setopt($oCurl, CURLOPT_TIMEOUT, $this->soaptimeout + 20);
-        curl_setopt($oCurl, CURLOPT_SSL_VERIFYHOST, 0);
-        curl_setopt($oCurl, CURLOPT_SSL_VERIFYPEER, 0);
-        curl_setopt($oCurl, CURLOPT_SSLVERSION, $this->soapprotocol);
-        curl_setopt($oCurl, CURLOPT_SSLCERT, $this->tempdir . $this->certfile);
-        curl_setopt($oCurl, CURLOPT_SSLKEY, $this->tempdir . $this->prifile);
-        if (!empty($this->temppass)) {
-            curl_setopt($oCurl, CURLOPT_KEYPASSWD, $this->temppass);
-        }
-        curl_setopt($oCurl, CURLOPT_RETURNTRANSFER, true);
-        $response = curl_exec($oCurl);
-        $soaperror = curl_error($oCurl);
-        $ainfo = curl_getinfo($oCurl);
-        $headsize = curl_getinfo($oCurl, CURLINFO_HEADER_SIZE);
-        $httpcode = curl_getinfo($oCurl, CURLINFO_HTTP_CODE);
-        curl_close($oCurl);
-        if ($httpcode != 200) {
-            return '';
-        }
-        return $response;
     }
 
     /**
@@ -167,9 +136,9 @@ class SoapCurl extends SoapBase implements SoapInterface
         if ($this->proxyIP != '') {
             curl_setopt($oCurl, CURLOPT_HTTPPROXYTUNNEL, 1);
             curl_setopt($oCurl, CURLOPT_PROXYTYPE, CURLPROXY_HTTP);
-            curl_setopt($oCurl, CURLOPT_PROXY, $this->proxyIP.':'.$this->proxyPort);
+            curl_setopt($oCurl, CURLOPT_PROXY, $this->proxyIP . ':' . $this->proxyPort);
             if ($this->proxyUser != '') {
-                curl_setopt($oCurl, CURLOPT_PROXYUSERPWD, $this->proxyUser.':'.$this->proxyPass);
+                curl_setopt($oCurl, CURLOPT_PROXYUSERPWD, $this->proxyUser . ':' . $this->proxyPass);
                 curl_setopt($oCurl, CURLOPT_PROXYAUTH, CURLAUTH_BASIC);
             }
         }

@@ -19,9 +19,9 @@ try {
         'razao' => 'Empresa Test Ltda',
         'tpamb' => 2
     ];
-    
+
     $configJson = json_encode($config);
-    
+
     $content = file_get_contents('expired_certificate.pfx');
     $password = 'associacao';
     $cert = Certificate::readPfx($content, $password);
@@ -34,16 +34,16 @@ try {
 
     $std = new \stdClass();
     $std->version = '1.00'; //false
-    $std->dataemissao = '2018-10-31T21:00:00'; //false
+    $std->dataemissao = '2020-05-04T15:20:00'; //false
     $std->status = 1;  // true
     $std->competencia = '2018-10-01'; //true
     $std->regimeespecialtributacao = 1;
-    $std->optantesimplesnacional = 1; // true
+    $std->optantesimplesnacional = 2; // true
     $std->incentivadorcultural = 2; // true
-    $std->naturezaoperacao = 16;
+    $std->naturezaoperacao = 1;
     
     $std->identificacaorps = new \stdClass(); //false
-    $std->identificacaorps->numero = 1;
+    $std->identificacaorps->numero = 2;
     $std->identificacaorps->serie = 'A1';
     $std->identificacaorps->tipo = 1;
     

@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?><ConsultarNfseFaixaEnvio xmlns="http://www.publica.inf.br">
+    <Prestador id="assinar">
+		<Cnpj>95836771000120</Cnpj>
+        <InscricaoMunicipal>56</InscricaoMunicipal>
+    </Prestador><ds:Signature xmlns:ds="http://www.w3.org/2000/09/xmldsig#">
+<ds:SignedInfo>
+<ds:CanonicalizationMethod Algorithm="http://www.w3.org/TR/2001/REC-xml-c14n-20010315"/>
+<ds:SignatureMethod Algorithm="http://www.w3.org/2000/09/xmldsig#rsa-sha1"/>
+<ds:Reference URI="#assinar">
+<ds:Transforms>
+<ds:Transform Algorithm="http://www.w3.org/2000/09/xmldsig#enveloped-signature"/>
+<ds:Transform Algorithm="http://www.w3.org/TR/2001/REC-xml-c14n-20010315#WithComments"/>
+<ds:Transform Algorithm="http://www.w3.org/TR/1999/REC-xpath-19991116">
+<ds:XPath>not(ancestor-or-self::ds:Signature)</ds:XPath>
+</ds:Transform>
+</ds:Transforms>
+<ds:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1"/>
+<ds:DigestValue>bIf5CaeceE0M1F9XjTJNViE1174=</ds:DigestValue>
+</ds:Reference>
+</ds:SignedInfo>
+<ds:SignatureValue>
+eWXn+hLmy6vACx5Xbd60EOipDs3F+k3V5WV11qxpR6j11gpWLOt/ajW/ZE3l5FD67J79jdLpdBXX
+ePeeMBCjocoPigcg7bevRgSPkkgRzaeSJNaC//amJbQOld9WxwmPUabO5jg6iZ3hm1PP1cQvwAZa
+TixBKk+1UiDhh9Yp3nw=
+</ds:SignatureValue>
+<ds:KeyInfo>
+<ds:X509Data>
+<ds:X509Certificate>
+MIIEcTCCA9qgAwIBAgICBe8wDQYJKoZIhvcNAQEFBQAwgZwxCzAJBgNVBAYTAkJSMQswCQYDVQQI
+DAJTQzEWMBQGA1UEBwwNRkxPUklBTk9QT0xJUzEhMB8GA1UECwwYQVVUT1JJREFERSBDRVJUSUZJ
+Q0FET1JBMRwwGgYDVQQKDBNCUlkgVEVDTk9MT0dJQSBTLkEuMScwJQYDVQQDDB5BQyBCUlkgTVVM
+VElQTEEgLSBERU1PTlNUUkFDQU8wHhcNMTExMjE2MTU0ODEyWhcNMTIxMjE1MTU0ODEyWjCBnDEL
+MAkGA1UEBhMCQlIxCzAJBgNVBAgMAlNDMREwDwYDVQQHDAhCTFVNRU5BVTEuMCwGA1UECwwlQVVU
+T1JJREFERSBDRVJUSUZJQ0FET1JBIERFTU9OU1RSQUNBTzEcMBoGA1UECgwTQlJZIFRFQ05PTE9H
+SUEgUy5BLjEfMB0GA1UEAwwWSFVHTyBIQVJPTERPIFNXQVJPV1NLWTCBnzANBgkqhkiG9w0BAQEF
+AAOBjQAwgYkCgYEA+N10dsNFHS+Kv3Umg+iTK8ePq0F5JZeWF9Dv5hfNmrxpplx97ifOjcAxzlq5
+QJIWodvsfLBvRLrYDbpV9u3wbeofixADAxZcqCLMb/0z1lGAnPX/XOJ+ozfZLUB3+yBNWbn0nQ/B
+dS6kuH8p2dGvdxqq2Mz7dtHJKts7dPeUEPkCAwEAAaOCAb4wggG6MB8GA1UdIwQYMBaAFAr9brgT
+DudHuiBaV/zPrxKQAxc5MB0GA1UdJQQWMBQGCCsGAQUFBwMCBggrBgEFBQcDBDAOBgNVHQ8BAf8E
+BAMCBeAwCQYDVR0TBAIwADBaBgNVHR8BAQAEUDBOMEygSqBIhkZodHRwOi8vaWNwLmJyeS5jb20u
+YnIvcmVwb3NpdG9yaW8vbGNyL2FjX2JyeV9tdWx0aXBsYV9kZW1vbnN0cmFjYW8uY3JsMIGYBgNV
+HREEgZAwgY2gPQYFYEwBAwGgNAQyMzAwNzE5ODMwNDgyMzA3MTk2NDAwMDAwMDAwMDAwMDAwMDAw
+MDAzOTkzOTI0U1NQU0OgHgYFYEwBAwWgFQQTMDAwMDAwMDAwMDAwMDAwMDAwMKAXBgVgTAEDBqAO
+BAwwMDAwMDAwMDAwMDCBE2h1Z29AcHVibGljYS5pbmYuYnIwZgYDVR0gBF8wXTBbBgsrBgEEAfR/
+AQMBATBMMEoGCCsGAQUFBwIBFj5odHRwOi8vaWNwLmJyeS5jb20uYnIvcmVwb3NpdG9yaW8vcGMv
+cGNfYTFfYWNfYnJ5X211bHRpcGxhLnBkZjANBgkqhkiG9w0BAQUFAAOBgQAt0JT0hg/yrprl23gw
+P+jGeS8f7kqiRhoFz5/6JeuFyQJ94UriU56YuoNtWFVhQiRtkt1MBR5SLlyTDefOikkIcS28FgxZ
+rxZvACxAeIff9Y6SySj0TEICx95Ulxb0g0O663+QHPJTgdUafdHvJHo6uqnOTWXe1jW/X4vDR2gS
+/w==
+</ds:X509Certificate>
+</ds:X509Data>
+<ds:KeyValue>
+<ds:RSAKeyValue>
+<ds:Modulus>
++N10dsNFHS+Kv3Umg+iTK8ePq0F5JZeWF9Dv5hfNmrxpplx97ifOjcAxzlq5QJIWodvsfLBvRLrY
+DbpV9u3wbeofixADAxZcqCLMb/0z1lGAnPX/XOJ+ozfZLUB3+yBNWbn0nQ/BdS6kuH8p2dGvdxqq
+2Mz7dtHJKts7dPeUEPk=
+</ds:Modulus>
+<ds:Exponent>AQAB</ds:Exponent>
+</ds:RSAKeyValue>
+</ds:KeyValue>
+</ds:KeyInfo>
+</ds:Signature>
+	<Faixa>
+        <NumeroNfseInicial>201200000000090</NumeroNfseInicial>
+        <NumeroNfseFinal>201200000000100</NumeroNfseFinal>
+    </Faixa>
+</ConsultarNfseFaixaEnvio>

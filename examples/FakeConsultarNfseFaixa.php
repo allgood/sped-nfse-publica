@@ -9,7 +9,7 @@ use NFePHP\NFSePublica\Common\Soap\SoapFake;
 use NFePHP\NFSePublica\Common\FakePretty;
 
 try {
-    
+
     $config = [
         'cnpj' => '99999999000191',
         'im' => '1733160024',
@@ -23,21 +23,20 @@ try {
     $content = file_get_contents('expired_certificate.pfx');
     $password = 'associacao';
     $cert = Certificate::readPfx($content, $password);
-    
+
     $soap = new SoapFake();
     $soap->disableCertValidation(true);
-    
+
     $tools = new Tools($configJson, $cert);
     $tools->loadSoapClass($soap);
 
-    $nano = 2018;
+    $nano = 2020;
     $nini = '1';
     $nfim = '100';
 
     $response = $tools->consultarNfseFaixa($nini, $nfim, $nano);
-    
+
     echo FakePretty::prettyPrint($response, '');
- 
 } catch (\Exception $e) {
     echo $e->getMessage();
 }

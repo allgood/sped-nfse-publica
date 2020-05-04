@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EnviarLoteRpsResposta xmlns="http://www.publica.inf.br" xmlns:ns2="http://www.w3.org/2000/09/xmldsig#">
+    <NumeroLote>44</NumeroLote>
+    <DataRecebimento>2012-01-12T14:46:44</DataRecebimento>
+    <Protocolo>ODs0NDswMzExMjQwMjAwMDE3NjsyNTs4OzQ0OzAzMTEyNDAyMD</Protocolo>
+</EnviarLoteRpsResposta>

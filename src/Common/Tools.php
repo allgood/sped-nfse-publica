@@ -81,7 +81,7 @@ class Tools
         if (empty($urls[$cmun])) {
             throw new \Exception("Não localizado parâmetros para esse municipio.");
         }
-        return (object) $urls[$cmun];
+        return (object)$urls[$cmun];
     }
 
 
@@ -132,7 +132,6 @@ class Tools
         }
         $request = $this->createSoapRequest($message, $operation);
         $this->lastRequest = $request;
-
         if (empty($this->soap)) {
             $this->soap = new SoapCurl($this->certificate);
         }
@@ -142,7 +141,7 @@ class Tools
             "SOAPAction: \"$action\"",
             "Content-length: $msgSize"
         ];
-        $response = (string) $this->soap->send(
+        $response = (string)$this->soap->send(
             $operation,
             $url,
             $action,
@@ -179,42 +178,17 @@ class Tools
      */
     protected function createSoapRequest($message, $operation)
     {
-
-        // $header = "<cabecalho versao=\"{$this->wsobj->version}\" xmlns=\"{$this->wsobj->soapns}\">"
-        //    . "<versaoDados>{$this->wsobj->version}</versaoDados>"
-        //    . "</cabecalho>";
-
         $cdata = htmlspecialchars($message, ENT_NOQUOTES);
-        // $cheader = htmlspecialchars($header, ENT_NOQUOTES);
-
         $env = "<soapenv:Envelope "
             . "xmlns:soapenv=\"http://schemas.xmlsoap.org/soap/envelope/\" "
             . "xmlns:e=\"{$this->wsobj->soapns}\">"
-            // . "<soapenv:Header/>"
             . "<soapenv:Body>"
             . "<e:{$operation}>"
-            // . "<nfseCabecMsg>{$cheader}</nfseCabecMsg>"
             . "<XML>{$cdata}</XML>"
             . "</e:{$operation}>"
             . "</soapenv:Body>"
             . "</soapenv:Envelope>";
 
-        /*
-        $dom = new Dom('1.0', 'UTF-8');
-        $dom->preserveWhiteSpace = false;
-        $dom->formatOutput = false;
-        $dom->loadXML($env);
-
-        $node = $dom->getElementsByTagName('nfseCabecMsg')->item(0);
-        $cdata = $dom->createCDATASection($cabecalho);
-        $node->appendChild($cdata);
-
-        $node = $dom->getElementsByTagName('nfseDadosMsg')->item(0);
-        $cdata = $dom->createCDATASection($message);
-        $node->appendChild($cdata);
-        return $dom->saveXML($dom->documentElement);
-         *
-         */
         return $env;
     }
 }
