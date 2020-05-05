@@ -30,11 +30,10 @@ try {
     $tools = new Tools($configJson, $cert);
     $tools->loadSoapClass($soap);
 
-    $nano = 2020;
-    $nini = '1';
-    $nfim = '100';
+    $nini = '202000000000001';
+    $nfim = '202000000000010';
 
-    $response = $tools->consultarNfseFaixa($nini, $nfim, $nano);
+    $response = $tools->consultarNfseFaixa($nini, $nfim);
 
     echo FakePretty::prettyPrint($response, '');
 } catch (\Exception $e) {
