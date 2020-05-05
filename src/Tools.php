@@ -15,11 +15,10 @@ namespace NFePHP\NFSePublica;
  * @link      http://github.com/nfephp-org/sped-nfse-publica for the canonical source repository
  */
 
-use NFePHP\NFSePublica\Common\Tools as BaseTools;
-use NFePHP\NFSePublica\RpsInterface;
 use NFePHP\Common\Certificate;
 use NFePHP\Common\Validator;
 use NFePHP\NFSePublica\Common\Signer;
+use NFePHP\NFSePublica\Common\Tools as BaseTools;
 
 class Tools extends BaseTools
 {
@@ -103,8 +102,8 @@ class Tools extends BaseTools
         $numero_nfse_a_cancelar,
         RpsInterface $novorps,
         $codigo = self::CANCEL_ERRO_EMISSAO
-    ) {
-    
+    )
+    {
         $operation = "SubstituirNfse";
         $novorps->config($this->config);
         $pedido = "<Pedido>"
@@ -199,10 +198,9 @@ class Tools extends BaseTools
      * Consulta NFSe emitidas por faixa de numeros (SINCRONO)
      * @param integer $numero_ini
      * @param integer $numero_fim
-     * @param integer $numero_ano
      * @return string
      */
-    public function consultarNfseFaixa($numero_ini, $numero_fim, $numero_ano)
+    public function consultarNfseFaixa($numero_ini, $numero_fim)
     {
         $operation = 'ConsultarNfseFaixa';
         $content = "<ConsultarNfseFaixaEnvio xmlns=\"{$this->wsobj->msgns}\">"
@@ -221,8 +219,8 @@ class Tools extends BaseTools
             ['</ConsultarNfseFaixaEnvio>'],
             [
                 "<Faixa>"
-                . "<NumeroNfseInicial>" . sprintf("%04d%011d", $numero_ano, $numero_ini) . "</NumeroNfseInicial>"
-                . "<NumeroNfseFinal>" . sprintf("%04d%011d", $numero_ano, $numero_fim) . "</NumeroNfseFinal>"
+                . "<NumeroNfseInicial>{$numero_ini}</NumeroNfseInicial>"
+                . "<NumeroNfseFinal>{$numero_fim}</NumeroNfseFinal>"
                 . "</Faixa></ConsultarNfseFaixaEnvio>"
             ],
             $content

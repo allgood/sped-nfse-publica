@@ -17,11 +17,8 @@ namespace NFePHP\NFSePublica\Common;
 
 use NFePHP\Common\Certificate;
 use NFePHP\Common\Strings;
-use NFePHP\Common\DOMImproved as Dom;
-use NFePHP\NFSePublica\RpsInterface;
-use NFePHP\NFSePublica\Common\Signer;
-use NFePHP\NFSePublica\Common\Soap\SoapInterface;
 use NFePHP\NFSePublica\Common\Soap\SoapCurl;
+use NFePHP\NFSePublica\Common\Soap\SoapInterface;
 
 class Tools
 {
@@ -84,7 +81,6 @@ class Tools
         return (object)$urls[$cmun];
     }
 
-
     /**
      * SOAP communication dependency injection
      * @param SoapInterface $soap
@@ -93,7 +89,6 @@ class Tools
     {
         $this->soap = $soap;
     }
-
 
     /**
      * Sign XML passing in content
