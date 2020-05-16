@@ -320,13 +320,13 @@ class Tools extends BaseTools
     }
 
     /**
-     * Solicita a emissão de uma NFSe de forma SINCRONA
+     * Assina RPS e retorna a string da requisição renderizada com a assinatura
+     *
      * @param RpsInterface $rps
      * @return string
      */
-    public function gerarNfse(RpsInterface $rps)
+    public function gerarNfseSignedRequest(RpsInterface $rps)
     {
-        $operation = "GerarNfse";
         $rps->config($this->config);
         $content = "<GerarNfseEnvio xmlns=\"{$this->wsobj->msgns}\">"
             . $rps->render()
@@ -345,7 +345,32 @@ class Tools extends BaseTools
             '',
             $content
         );
+        return $content;
+    }
+
+    /**
+     * Solicita a emissão de uma NFSe a partir de uma string
+     * com a requisição 'gerarNfse' assinado de forma SINCRONA
+     *
+     * @param string $content
+     * @return string
+     */
+    public function gerarNfseFromString(string $content)
+    {
+        $operation = "GerarNfse";
         Validator::isValid($content, $this->xsdpath);
         return $this->send($content, $operation);
     }
+    
+    /**
+     * Solicita a emissão de uma NFSe de forma SINCRONA
+     *
+     * @param RpsInterface $rps
+     * @return string
+     */
+    public function gerarNfse(RpsInterface $rps)
+    {
+        return gerarNfseFromString(gerarNfseSignedRequest($rps));
+    }
+    
 }
