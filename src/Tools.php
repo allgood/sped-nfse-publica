@@ -370,7 +370,7 @@ class Tools extends BaseTools
      */
     public function gerarNfse(RpsInterface $rps)
     {
-        return gerarNfseFromString(gerarNfseSignedRequest($rps));
+        return $this->gerarNfseFromString($this->gerarNfseSignedRequest($rps));
     }
     
 }
