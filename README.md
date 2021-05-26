@@ -2,20 +2,6 @@
 
 Biblioteca para comunicação com webservices do Modelo Publica
 
-## BETHA TESTES
-
-[![Latest Stable Version][ico-stable]][link-packagist]
-[![Build Status][ico-travis]][link-travis]
-[![Coverage Status][ico-scrutinizer]][link-scrutinizer]
-[![Quality Score][ico-code-quality]][link-code-quality]
-[![Latest Version on Packagist][ico-version]][link-packagist]
-[![License][ico-license]][link-packagist]
-[![Total Downloads][ico-downloads]][link-downloads]
-
-[![Issues][ico-issues]][link-issues]
-[![Forks][ico-forks]][link-forks]
-[![Stars][ico-stars]][link-stars]
-
 Este pacote é aderente com os [PSR-1], [PSR-2] e [PSR-4]. Se você observar negligências de conformidade, por favor envie um patch via pull request.
 
 [PSR-1]: https://github.com/php-fig/fig-standards/blob/master/accepted/PSR-1-basic-coding-standard.md
@@ -26,18 +12,21 @@ Não deixe de se cadastrar no [grupo de discussão do NFePHP](http://groups.goog
 
 ## Municípios atendidos pelo provedor
 
-|n|Município|UF|Ibge|
-|:---:|:---|:---:|:---:|
-|1|Abelardo Luz|SC|4200101|
-|2|Alto Bela Vista|SC|4200754|
-|3|Ampére|PR|4101002|
-|4|Caçador|SC|4203006|
-|5|Canoinhas|SC|4203808|
-|6|Chapeco|SC|4204202|
-|7|Itajaí|SC|4208203|
-|8|Lebon Régis|SC|4209706|
-|9|Mafra|SC|4210100|
-|10|Timbó Grande|SC|4218251|
+|Município|UF|Ibge|
+|:---|:---:|:---:|
+|Homologação|SC|1234567|
+|Abelardo Luz|SC|4200101|
+|Alto Bela Vista|SC|4200754|
+|Ampére|PR|4101002|
+|Caçador|SC|4203006|
+|Canoinhas|SC|4203808|
+|Chapeco|SC|4204202|
+|Itajaí|SC|4208203|
+|Lebon Régis|SC|4209706|
+|Mafra|SC|4210100|
+|Timbó Grande|SC|4218251|
+
+As configurações de ambiente de homologação fornecidas pelo fornecedor do serviço são confusas. Usar o município 1234567 parece que é a melhor forma.
 
 ## Dependências
 
