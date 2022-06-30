@@ -11,7 +11,6 @@ use NFePHP\NFSePublica\Common\Soap\SoapFake;
 use NFePHP\NFSePublica\Common\FakePretty;
 
 try {
-
     $config = [
         'cnpj'  => '99999999000191',
         'im'    => '1733160024',
@@ -109,8 +108,6 @@ try {
     $response = $tools->substituirNfse($numero_cancelar, $rps, $tools::CANCEL_ERRO_EMISSAO);
 
     echo FakePretty::prettyPrint($response, '');
-    
 } catch (\Exception $e) {
     echo $e->getMessage();
 }
-

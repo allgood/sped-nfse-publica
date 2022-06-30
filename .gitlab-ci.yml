@@ -1,0 +1,26 @@
+image: php:7.4
+
+# Composer stores all downloaded packages in the vendor/ directory.
+# Do not use the following if the vendor/ directory is committed to
+# your git repository.
+cache:
+  paths:
+  - vendor/
+
+# Install composer dependencies
+before_script:
+- apt update -yq
+- apt install --no-install-recommends wget git zlib1g-dev libzip-dev unzip libxml2-dev libcurl4-openssl-dev libjpeg-dev libpng-dev openssh-client -yq
+- docker-php-ext-install soap xml curl gd
+- curl -sS https://getcomposer.org/installer | php
+- php composer.phar install --no-progress
+
+stages:
+  - test
+
+test:
+  stage: test
+  script:
+  - vendor/bin/phpcs --standard=psr2 src/
+  - vendor/bin/phpcs --standard=psr2 examples/
+  - vendor/bin/phpunit

@@ -11,7 +11,6 @@ use NFePHP\NFSePublica\Common\Soap\SoapFake;
 use NFePHP\NFSePublica\Common\FakePretty;
 
 try {
-
     $config = [
         'cnpj'  => '99999999000191',
         'im'    => '1733160024',
@@ -34,6 +33,14 @@ try {
 
     $arps = [];
 
+    $std = new \stdClass();
+    $std->version = '1.00'; //false
+    $std->dataemissao = '2020-05-04T15:20:00'; //false
+    $std->status = 1;  // true
+    $std->optantesimplesnacional = 2; // true
+    $std->incentivadorcultural = 2; // true
+    $std->naturezaoperacao = 1;
+    
     $std->identificacaorps = new \stdClass(); //false
     $std->identificacaorps->numero = 3;
     $std->identificacaorps->serie = 'A1';

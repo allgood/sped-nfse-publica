@@ -11,13 +11,13 @@ $std->version = '2.02'; //false
 $std->dataemissao = '2018-10-31'; //false
 $std->status = 1;  // true
 $std->competencia = '2018-10-01'; //true
-$std->regimeespecialtributacao = 1; 
+$std->regimeespecialtributacao = 1;
 $std->optantesimplesnacional = 1; // true
 $std->incentivofiscal = 2; // true
 
 $std->identificacaorps = new \stdClass(); //false
-$std->identificacaorps->numero = 11; 
-$std->identificacaorps->serie = '1'; 
+$std->identificacaorps->numero = 11;
+$std->identificacaorps->serie = '1';
 $std->identificacaorps->tipo = 1;
 
 $std->servico = new \stdClass(); //true
@@ -50,7 +50,7 @@ $std->servico->valores->descontocondicionado = 10.00; //false
 $std->tomador = new \stdClass(); //false
 $std->tomador->cnpj = "99999999000191"; //false
 $std->tomador->cpf = "12345678901"; //false
-$std->tomador->razaosocial = "Fulano de Tal"; //false 
+$std->tomador->razaosocial = "Fulano de Tal"; //false
 $std->tomador->telefone = '123456789'; //false
 $std->tomador->email = 'fulano@mail.com'; //false
 
@@ -65,7 +65,7 @@ $std->tomador->endereco->codigopais = null; //false
 $std->tomador->endereco->cep = '30160010'; //false
 
 $std->intermediarioservico = new \stdClass(); //false
-$std->intermediarioservico->cnpj = '99999999000191'; //false 
+$std->intermediarioservico->cnpj = '99999999000191'; //false
 $std->intermediarioservico->cpf = null; //false
 $std->intermediarioservico->inscricaomunicipal = '8041700010';
 $std->intermediarioservico->razaosocial = "Beltrano da Silva";
@@ -90,6 +90,3 @@ $rps->config($config);
 
 header("Content-type: text/xml");
 echo $rps->render();
-
-
-

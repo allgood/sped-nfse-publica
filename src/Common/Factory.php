@@ -481,5 +481,4 @@ class Factory
         );
         $parent->appendChild($ide);
     }
-
 }

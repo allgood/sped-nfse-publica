@@ -11,7 +11,6 @@ use NFePHP\NFSePublica\Common\Soap\SoapFake;
 use NFePHP\NFSePublica\Common\FakePretty;
 
 try {
-
     $config = [
         'cnpj'  => '99999999000191',
         'im'    => '1733160024',

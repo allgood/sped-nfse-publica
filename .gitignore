@@ -11,3 +11,6 @@ build
 composer.lock
 composer.phar
 .buildpath
+private
+.env
+.settings
