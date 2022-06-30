@@ -22,6 +22,8 @@ use NFePHP\Common\Exception\SignerException;
 use DOMDocument;
 use DOMNode;
 use DOMElement;
+use RobRichards\XMLSecLibs\XMLSecurityDSig;
+use RobRichards\XMLSecLibs\XMLSecurityKey;
 
 class Signer
 {
@@ -63,9 +65,14 @@ class Signer
         if (!empty($rootname)) {
             $root = $dom->getElementsByTagName($rootname)->item(0);
         }
-        $node = $dom->getElementsByTagName($tagname)->item(0);
-        if (empty($node) || empty($root)) {
-            throw SignerException::tagNotFound($tagname);
+        
+        if ($tagname !== null) {
+            $node = $dom->getElementsByTagName($tagname)->item(0);
+            if (empty($node) || empty($root)) {
+                throw SignerException::tagNotFound($tagname);
+            }
+        } else {
+            $node = null;
         }
         $dom = self::createSignature(
             $certificate,
@@ -94,64 +101,45 @@ class Signer
         Certificate $certificate,
         DOMDocument $dom,
         DOMNode $root,
-        DOMElement $node,
+        ?DOMElement $node,
         $mark,
         $algorithm = OPENSSL_ALGO_SHA1,
         $canonical = self::CANONICAL
     ) {
-    
-        $nsDSIG = 'http://www.w3.org/2000/09/xmldsig#';
-        $nsCannonMethod = 'http://www.w3.org/2001/10/xml-exc-c14n#';
-        $nsSignatureMethod = 'http://www.w3.org/2000/09/xmldsig#rsa-sha1';
-        $nsDigestMethod = 'http://www.w3.org/2000/09/xmldsig#sha1';
-        $digestAlgorithm = 'sha1';
-        $nsTransformMethod1 = 'http://www.w3.org/2000/09/xmldsig#enveloped-signature';
-        $nsTransformMethod2 = 'http://www.w3.org/TR/2001/REC-xml-c14n-20010315';
-        $idSigned = trim($node->getAttribute($mark));
-        $digestValue = self::makeDigest($node, $digestAlgorithm, $canonical);
-        $signatureNode = $dom->createElementNS($nsDSIG, 'Signature');
 
-        $root->appendChild($signatureNode);
-
-        $signedInfoNode = $dom->createElement('SignedInfo');
-        $signatureNode->appendChild($signedInfoNode);
-        $canonicalNode = $dom->createElement('CanonicalizationMethod');
-        $signedInfoNode->appendChild($canonicalNode);
-        $canonicalNode->setAttribute('Algorithm', $nsCannonMethod);
-        $signatureMethodNode = $dom->createElement('SignatureMethod');
-        $signedInfoNode->appendChild($signatureMethodNode);
-        $signatureMethodNode->setAttribute('Algorithm', $nsSignatureMethod);
-        $referenceNode = $dom->createElement('Reference');
-        $signedInfoNode->appendChild($referenceNode);
-        if (!empty($idSigned)) {
-            $idSigned = "#$idSigned";
-        }
-        $referenceNode->setAttribute('URI', $idSigned);
-        $transformsNode = $dom->createElement('Transforms');
-        $referenceNode->appendChild($transformsNode);
-        $transfNode1 = $dom->createElement('Transform');
-        $transformsNode->appendChild($transfNode1);
-        $transfNode1->setAttribute('Algorithm', $nsTransformMethod1);
-        $transfNode2 = $dom->createElement('Transform');
-        $transformsNode->appendChild($transfNode2);
-        $transfNode2->setAttribute('Algorithm', $nsTransformMethod2);
-        $digestMethodNode = $dom->createElement('DigestMethod');
-        $referenceNode->appendChild($digestMethodNode);
-        $digestMethodNode->setAttribute('Algorithm', $nsDigestMethod);
-        $digestValueNode = $dom->createElement('DigestValue', $digestValue);
-        $referenceNode->appendChild($digestValueNode);
-        $c14n = self::canonize($signedInfoNode, $canonical);
-        $signature = $certificate->sign($c14n, $algorithm);
-        $signatureValue = base64_encode($signature);
-        $signatureValueNode = $dom->createElement('SignatureValue', $signatureValue);
-        $signatureNode->appendChild($signatureValueNode);
-        $keyInfoNode = $dom->createElement('KeyInfo');
-        $signatureNode->appendChild($keyInfoNode);
-        $x509DataNode = $dom->createElement('X509Data');
-        $keyInfoNode->appendChild($x509DataNode);
-        $pubKeyClean = $certificate->publicKey->unFormated();
-        $x509CertificateNode = $dom->createElement('X509Certificate', $pubKeyClean);
-        $x509DataNode->appendChild($x509CertificateNode);
+        /* */
+        // Create a new Security object
+        $objDSig = new XMLSecurityDSig();
+        // Use the c14n exclusive canonicalization
+        $objDSig->setCanonicalMethod(XMLSecurityDSig::EXC_C14N);
+        // Sign using SHA-1
+        $objDSig->addReference(
+            $node ? $node : $dom,
+            XMLSecurityDSig::SHA1,
+            [
+                'http://www.w3.org/2000/09/xmldsig#enveloped-signature',
+                'http://www.w3.org/TR/2001/REC-xml-c14n-20010315',
+                // [ 'http://www.w3.org/TR/1999/REC-xpath-19991116' => [
+                //    'query' => 'not(ancestor-or-self::ds:Signature)'
+                // ]]
+            ],
+            [ 'force_uri' => true , 'id_name' => $mark , 'overwrite' => false ]
+        );
+        
+        // Create a new (private) Security key
+        $objKey = new XMLSecurityKey(XMLSecurityKey::RSA_SHA1, array('type'=>'private'));
+        // Load the private key
+        $objKey->loadKey($certificate->privateKey);
+        
+        // Sign the XML file
+        $objDSig->sign($objKey);
+        
+        // Add the associated public key to the signature
+        $objDSig->add509Cert($certificate->publicKey);
+        
+        // Append the signature to the XML
+        $objDSig->appendSignature($root);
+        // Save the signed XML
 
         return $dom;
     }
