@@ -53,15 +53,13 @@ class Tools
      */
     protected function buildPrestadorTag()
     {
-        $this->prestador = "<Prestador id=\"prestador\">"
-            . "<CpfCnpj>";
+        $this->prestador = "<Prestador id=\"prestador\">";
         if (!empty($this->config->cnpj)) {
             $this->prestador .= "<Cnpj>{$this->config->cnpj}</Cnpj>";
         } else {
             $this->prestador .= "<Cpf>{$this->config->cpf}</Cpf>";
         }
-        $this->prestador .= "</CpfCnpj>"
-            . "<InscricaoMunicipal>{$this->config->im}</InscricaoMunicipal>"
+        $this->prestador .= "<InscricaoMunicipal>{$this->config->im}</InscricaoMunicipal>"
             . "</Prestador>";
     }
 
@@ -116,6 +114,8 @@ class Tools
      */
     public function send($message, $operation)
     {
+        $consoledebug = (isset($this->config->consoledebug) && $this->config->consoledebug);
+
         $action = $operation;
         $url = $this->wsobj->homologacao;
         if ($this->environment === 'producao') {
@@ -125,7 +125,20 @@ class Tools
             throw new \Exception("Não está registrada a URL para o ambiente "
                 . "de {$this->environment} desse municipio.");
         }
+
+        if ($consoledebug) {
+            echo "\nDebug communication\n";
+            echo "Operation: ".$operation."\n";
+            echo "URL: ".$url.'\n';
+            echo "Message:\n".$message."\n\n";
+        }
+        
         $request = $this->createSoapRequest($message, $operation);
+        
+        if ($consoledebug) {
+            echo "Soap Request:\n".$request."\n\n";
+        }
+        
         $this->lastRequest = $request;
         if (empty($this->soap)) {
             $this->soap = new SoapCurl($this->certificate);
@@ -143,6 +156,10 @@ class Tools
             $request,
             $parameters
         );
+        
+        if ($consoledebug) {
+            echo 'Response: '.$response."\n\n";
+        }
         return $this->extractContentFromResponse($response, $operation);
     }
 

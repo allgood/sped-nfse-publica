@@ -102,8 +102,7 @@ class Tools extends BaseTools
         $numero_nfse_a_cancelar,
         RpsInterface $novorps,
         $codigo = self::CANCEL_ERRO_EMISSAO
-    )
-    {
+    ) {
         $operation = "SubstituirNfse";
         $novorps->config($this->config);
         $pedido = "<Pedido>"
@@ -279,7 +278,7 @@ class Tools extends BaseTools
             $rps->config($this->config);
             $content .= $rps->render();
         }
-        $contentmsg = "<EnviarLoteRpsEnvio xmlns=\"{$this->wsobj->msgns}\" "
+        $content = "<EnviarLoteRpsEnvio xmlns=\"{$this->wsobj->msgns}\" "
             . "xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" "
             . "xsi:schemaLocation=\"http://www.publica.inf.br schema_nfse_v03.xsd\">"
             . "<LoteRps versao=\"{$this->wsobj->version}\">"
@@ -294,18 +293,9 @@ class Tools extends BaseTools
             . "</EnviarLoteRpsEnvio>";
         $content = Signer::sign(
             $this->certificate,
-            $contentmsg,
-            'InfRps',
-            'id',
-            OPENSSL_ALGO_SHA1,
-            [true, false, null, null],
-            'Rps'
-        );
-        $content = Signer::sign(
-            $this->certificate,
             $content,
-            'LoteRps',
-            'Id',
+            null,
+            'id',
             OPENSSL_ALGO_SHA1,
             [true, false, null, null],
             'EnviarLoteRpsEnvio'
@@ -319,6 +309,42 @@ class Tools extends BaseTools
         return $this->send($content, $operation);
     }
 
+    /**
+     * Consulta Lote RPS (SINCRONO) após envio com recepcionarLoteRps() (ASSINCRONO)
+     * complemento do processo de envio assincono.
+     * Que deve ser usado quando temos mais de um RPS sendo enviado
+     * por vez.
+     * @param string $protocolo
+     * @return string
+     */
+    public function consultarSituacaoLoteRps($protocolo)
+    {
+        $operation = 'ConsultarSituacaoLoteRps';
+        $content = "<ConsultarSituacaoLoteRpsEnvio xmlns=\"{$this->wsobj->msgns}\">"
+        . $this->prestador
+        . "</ConsultarSituacaoLoteRpsEnvio>";
+        
+        $content = Signer::sign(
+            $this->certificate,
+            $content,
+            'Prestador',
+            'id',
+            OPENSSL_ALGO_SHA1,
+            [true, false, null, null],
+            ''
+        );
+         $content = str_replace(
+             ['</ConsultarSituacaoLoteRpsEnvio>'],
+             [
+                 "<Protocolo>{$protocolo}</Protocolo>"
+                 . "</ConsultarSituacaoLoteRpsEnvio>"
+                     ],
+             $content
+         );
+        Validator::isValid($content, $this->xsdpath);
+        return $this->send($content, $operation);
+    }
+    
     /**
      * Assina RPS e retorna a string da requisição renderizada com a assinatura
      *
@@ -372,5 +398,4 @@ class Tools extends BaseTools
     {
         return $this->gerarNfseFromString($this->gerarNfseSignedRequest($rps));
     }
-    
 }
