@@ -391,6 +391,8 @@ class Tools extends BaseTools
     /**
      * Solicita a emissão de uma NFSe de forma SINCRONA
      *
+     * @deprecated Usar recepcionarLoteRps() e consultarLoteRps() de forma assíncrona
+     *
      * @param RpsInterface $rps
      * @return string
      */
