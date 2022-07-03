@@ -110,6 +110,8 @@ try {
     echo "\n\n";
     $xmlresponse = simplexml_load_string($response);
     var_dump($xmlresponse);
+    
+    $response = $tools->consultarSituacaoLoteRps($xmlresponse->Protocolo);
 } catch (\Exception $e) {
     echo $e->getMessage();
 }
