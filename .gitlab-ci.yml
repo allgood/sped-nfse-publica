@@ -1,4 +1,4 @@
-image: php:7.4
+image: php:8.2
 
 # Composer stores all downloaded packages in the vendor/ directory.
 # Do not use the following if the vendor/ directory is committed to
