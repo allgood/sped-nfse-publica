@@ -22,9 +22,12 @@ use NFePHP\NFSePublica\Common\Tools as BaseTools;
 
 class Tools extends BaseTools
 {
-    const CANCEL_ERRO_EMISSAO = 1;
-    const CANCEL_SERVICO_NAO_CONCLUIDO = 2;
-    const CANCEL_DUPLICIDADE = 4;
+    const CANCEL_ERRO_TOMADOR = 1;
+    const CANCEL_ERRO_DESCRICAO = 2;
+    const CANCEL_ERRO_VALOR = 3;
+    const CANCEL_ERRO_NATUREZA = 4;
+    const CANCEL_ERRO_TRIBUTOS = 5;
+    const CANCEL_ERRO_OUTROS = 999;
 
     protected $xsdpath;
 
@@ -49,7 +52,7 @@ class Tools extends BaseTools
      * @param string $motivo
      * @return string
      */
-    public function cancelarNfse($numero, $codigo = self::CANCEL_ERRO_EMISSAO, $motivo = null)
+    public function cancelarNfse($numero, $codigo = self::CANCEL_ERRO_VALOR, $motivo = null)
     {
         $operation = 'CancelarNfse';
         $pedido = "<Pedido>"
@@ -64,9 +67,9 @@ class Tools extends BaseTools
         $pedido .= "<InscricaoMunicipal>{$this->config->im}</InscricaoMunicipal>"
             . "<CodigoMunicipio>{$this->config->cmun}</CodigoMunicipio>"
             . "</IdentificacaoNfse>"
-            . "<CodigoCancelamento>$codigo</CodigoCancelamento>";
-        if ($codigo == self::CANCEL_ERRO_EMISSAO) {
-            $pedido .= "<MotivoCancelamento>{$motivo}</MotivoCancelamento>";
+            . "<CodigoCancelamento>" . sprintf("C%03d", $codigo) . "</CodigoCancelamento>";
+        if ($codigo == self::CANCEL_ERRO_OUTROS) {
+            $pedido .= "<MotivoCancelamento>${motivo}</MotivoCancelamento>";
         }
         $pedido .= "</InfPedidoCancelamento>"
             . "</Pedido>";
