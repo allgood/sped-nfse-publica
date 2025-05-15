@@ -53,6 +53,15 @@
         "msgns": "http://www.publica.inf.br",
         "soapns": "http://service.nfse.integracao.ws.publica/"
     },
+    "4204004" : {
+        "municipio" : "Catanduvas",
+        "uf" : "SC",
+        "homologacao" : "http://nfse-teste.publica.inf.br/catanduvas_nfse_integracao/Services",
+        "producao" : "http://nfse1.publica.inf.br/catanduvas_nfse_integracao/Services",
+        "version" : "1.00",
+        "msgns" : "http://www.publica.inf.br",
+        "soapns" : "http://service.nfse.integracao.ws.publica/"
+    },
     "4204202": {
         "municipio": "Chapecó",
         "uf": "SC",
